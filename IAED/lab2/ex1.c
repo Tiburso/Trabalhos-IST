@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-int main() {
+int () {
   int a,b,c;
 
   printf("Escreva três numeros:");
