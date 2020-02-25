@@ -6,7 +6,11 @@ int main() {
 
   printf("Escreva um limite:");
   scanf("%d", &N);
-  for (int i = 0; i < N; i++) {
+  printf("Escreva um número:");
+  scanf("%f", &x);
+  min = x;
+  max = x;
+  for (int i = 1; i < N; i++) {
     printf("Escreva um número:");
     scanf("%f", &x);
     if (x > max) {
