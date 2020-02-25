@@ -6,12 +6,12 @@ int main() {
   printf("Escreva três numeros:");
   scanf("%d%d%d", &a,&b,&c);
   if (a > b && a > c) {
-    printf("%d\n", a);
+    printf("O seu número é %d\n", a);
   }
   else if (b > a && b > c) {
-    printf("%d\n", b);
+    printf("Os seu número é %d\n", b);
   }
   else
-    printf("%d\n", c);
+    printf("O seu número é %d\n", c);
   return 0;
 }
