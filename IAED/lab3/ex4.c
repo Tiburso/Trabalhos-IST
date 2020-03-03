@@ -4,17 +4,21 @@
 
 int main(int argc, char const *argv[]) {
   int c,ch,estado = ZERO;
-  printf("Escreva uma quantidade arbitraria de numeros:");
+
   while ((c = getchar()) != EOF) {
     if (c == '0') {
       estado = ZERO;
     }
-    else if (estado == ZERO) {
+    else if (estado == ZERO || estado == VALOR) {
+      putchar(c);
       estado = VALOR;
-      printf("%c", c);
     }
-    else if (c == '\n' || c == ' ' || c == '\t') {
+    else if (estado == VALOR && (c == ' ' || c == '\n' || c == '\t')){
+      putchar(c);
       estado = ZERO;
+    }
+    else {
+      printf("0");
     }
   }
   printf("\n");

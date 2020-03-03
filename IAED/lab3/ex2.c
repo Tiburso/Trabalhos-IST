@@ -1,9 +1,14 @@
 #include <stdio.h>
 
 void piramide(int N) {
-  for (size_t i = 0; i < N; i++) {
-    for (int tab = 0; tab < i; tab++) {
-      printf("' '");
+  for (size_t i = 1; i <= N; i++) {
+    for (int tab = 1; tab <= i; tab++) {
+      if (tab < i) {
+        }
+      else {
+        printf("' '");
+        }
+      }
     }
     printf("%s\n", );
   }

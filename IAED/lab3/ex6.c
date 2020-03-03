@@ -1,15 +1,15 @@
 #include <stdio.h>
 
 int main(int argc, char const *argv[]) {
-  int c;
+  int c, total = 0;
   printf("Escreva um número:");
-  while (c = getchar() != EOF) {
-
+  while ((c = getchar()) != '\n') {
+    total = total + (c - 48);
   }
-  if (c % 9 == 0) {
-    printf("yes");
+  if (total % 9 == 0) {
+    printf("yes\n");
   }
   else
-    printf("no");
+    printf("no\n");
   return 0;
 }
