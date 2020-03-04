@@ -1,26 +1,24 @@
 #include <stdio.h>
-#define NUM 0
-#define VALOR 1
+#define ZERO 0
+#define VALUE 1
 
 int main(int argc, char const *argv[]) {
-  int c,ch,estado = NUM;
+  int c,ch,estado = ZERO;
 
   while ((c = getchar()) != EOF) {
-    if (c == '0') {
-      estado = NUM;
-    }
-    else if (estado == NUM || estado == VALOR) {
+    if (c == '0' && estado == ZERO);
+    else if (estado == VALUE && (c == ' ' || c == '\t' || c == '\n')) {
       putchar(c);
-      estado = VALOR;
+      estado = ZERO;
     }
-    else if (estado == VALOR && (c == ' ' || c == '\n' || c == '\t')){
+    else if (estado == ZERO && (c == ' ' || c == '\t' || c == '\n')) {
+      printf("0%c", c);
+      estado = ZERO;
+    }
+    else if ((estado == ZERO && c != '0') || estado == VALUE) {
       putchar(c);
-      estado = NUM;
-    }
-    else {
-      printf("0");
+      estado = VALUE;
     }
   }
-  printf("\n");
   return 0;
 }

@@ -1,15 +1,9 @@
 #include <stdio.h>
 
 void piramide(int N) {
-  for (size_t i = 1; i <= N; i++) {
-    for (int tab = 1; tab <= i; tab++) {
-      if (tab < i) {
-        }
-      else {
-        printf("' '");
-        }
-      }
-    }
+  int i = 0;
+  for (size_t _ = 1; _ <= N; _++) {
+    while i
     printf("%s\n", );
   }
 }
@@ -17,7 +11,7 @@ void piramide(int N) {
 int main(int argc, char const *argv[]) {
   int N;
   do {
-    printf("Escreva um limite:");
+    printf("Escreva um tamanho:");
     scanf("%d", &N);
   } while(N < 2);
   piramide(N);
