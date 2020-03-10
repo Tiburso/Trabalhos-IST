@@ -5,7 +5,7 @@
 void clear(char v[],int size);
 
 int main() {
-  int i,dim;
+  int i,dim,l = 0;
   char v1[MAX], v2[MAX],str[MAX];
 
   clear(v1,MAX);
@@ -16,8 +16,9 @@ int main() {
   for (i = 0; i < dim/2; i++) {
     v1[i] = str[i];
   }
-  for (i = dim/2; i < dim; i++) {
-    v2[i] = str[i];
+  for (i = dim-1; i > dim/2-1; i--) {
+    v2[l] = str[i];
+    l++;
   }
   if (strcmp(v1,v2) == 0){
     printf("yes\n");
