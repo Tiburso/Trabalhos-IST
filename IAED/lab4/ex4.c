@@ -12,7 +12,7 @@ int main() {
   clear(v2,MAX);
   printf("Escreva uma palavra:");
   scanf("%s", str);
-  for (dim = 0; str[dim] != '\0'; dim++);
+  dim = strlen(str);
   for (i = 0; i < dim/2; i++) {
     v1[i] = str[i];
   }
