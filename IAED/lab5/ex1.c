@@ -2,7 +2,7 @@
 #define ALUNOS 10
 #define DISCIPLINAS 5
 
-long score_disciplina(int disciplina, int valores[][]){
+long score_disciplina(int disciplina, int valores[][DISCIPLINAS]){
   int total = 0;
 
   for (size_t i = 0; i < ALUNOS; i++) {
@@ -11,7 +11,7 @@ long score_disciplina(int disciplina, int valores[][]){
   return total/ALUNOS;
 }
 
-long score_aluno(int aluno, int valores[][]){
+long score_aluno(int aluno, int valores[][DISCIPLINAS]){
   int total = 0;
 
   for (size_t i = 0; i < DISCIPLINAS; i++) {
@@ -39,20 +39,20 @@ int main() {
   }
 
   for (size_t i = 0; i < DISCIPLINAS; i++) {
-    if (maxn < score_disciplina(i, valores[ALUNOS])) {
-      maxn = score_disciplina(i, valores[ALUNOS]);
+    if (maxn < score_disciplina(i, valores)) {
+      maxn = score_disciplina(i, valores);
       n = i;
     }
   }
 
   for (size_t i = 0; i < ALUNOS; i++) {
-    if (maxa < score_aluno(i, valores[i])) {
-      maxa = score_aluno(i, valores[i]);
+    if (maxa < score_aluno(i, valores)) {
+      maxa = score_aluno(i, valores);
       a = i;
     }
   }
 
-  printf("%d\n%d", n, a);
+  printf("%d\n%d\n", n, a);
 
   return 0;
 }
