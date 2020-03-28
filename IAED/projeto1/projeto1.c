@@ -36,7 +36,6 @@ typedef struct Produto{
 typedef struct Encomenda{
   produto produtos[TAMANHO_ID];
   int peso;
-  char state;
 }encomenda;
 
 /* inicializar os arrays globais dos produtos e das encomendas */
@@ -109,7 +108,7 @@ void adicionaProdEncomenda() {
   else {
     /* verifica se o produto ja existe na encomenda */
     if (encomends[ide].produtos[idp].ds[0] != '\0') {
-      encomends[ide].peso += prods[idp].peso;
+      encomends[ide].peso += q*prods[idp].peso;
       encomends[ide].produtos[idp].qtd += q;
       prods[idp].qtd -= q;
     }
@@ -119,7 +118,7 @@ void adicionaProdEncomenda() {
       encomends[ide].produtos[idp].peso = prods[idp].peso;
       encomends[ide].produtos[idp].qtd = q;
       prods[idp].qtd -= q;
-      encomends[ide].peso = prods[idp].peso;
+      encomends[ide].peso += q*prods[idp].peso;
     }
   }
 }
@@ -225,8 +224,8 @@ void listaDsQtdEmEncomenda() {
   if (ide >= idencomenda) {
     printf("Impossivel listar encomenda %d. Encomenda inexistente.\n", ide);
   }
-  /* verifica se o produto existe na encomenda */
-  else if (encomends[ide].produtos[idp].ds[0] == '\0') {
+  /* verifica se o produto existe */
+  else if (idp >= idproduto) {
     printf("Impossivel listar produto %d. Produto inexistente.\n", idp);
   }
   /* escreve o descricao e a quantidade */
