@@ -38,13 +38,14 @@ typedef struct Encomenda{
   int peso;
 }encomenda;
 
-/* inicializar os arrays globais dos produtos e das encomendas */
+/* inicializar os vetores globais dos produtos e das encomendas */
 produto prods[TAMANHO_ID] = {0};
 encomenda encomends[MAX_ENCOMENDAS] = {0};
 
 int idproduto = 0; /* variavel global do id dos produtos */
 int idencomenda = 0;/* variavel global do id das encomendas */
 
+/* adiciona um produto ao vetor prods*/
 void novoProduto() {
   /* criar o novo produto */
   produto p;
@@ -60,6 +61,7 @@ void novoProduto() {
   idproduto++;
 }
 
+/* adiciona stock a um produto no vetor prods */
 void adicionaStock() {
   /* inicializar a variavel quantidade e o id do produto*/
   int q, idp;
@@ -75,6 +77,7 @@ void adicionaStock() {
     prods[idp].qtd += q;
 }
 
+/* cria uma nova encomenda */
 void novaEncomenda() {
   /* cria uma nova encomenda */
   printf("Nova encomenda %d.\n", idencomenda);
@@ -83,6 +86,7 @@ void novaEncomenda() {
   idencomenda++;
 }
 
+/* adiciona um produto a encomenda selecionada */
 void adicionaProdEncomenda() {
   /* inicializa as variaveis a ler */
   int idp, ide, q;
@@ -123,6 +127,7 @@ void adicionaProdEncomenda() {
   }
 }
 
+/* retira stock a um produto no vetor produtos */
 void removeStock() {
   /* inicializa as variaveis a ler */
   int s, id;
@@ -144,6 +149,7 @@ void removeStock() {
   }
 }
 
+/* remove um produto a encomenda selecionada */
 void removeProdEncomenda() {
   /* inicializa as variaveis a ler */
   int ide, idp;
@@ -169,6 +175,7 @@ void removeProdEncomenda() {
   }
 }
 
+/* calcula o custo total da encomenda selecionada */
 void calculaCusto() {
   /* inicializa a variavel a ler */
   int ide;
@@ -190,6 +197,7 @@ void calculaCusto() {
   }
 }
 
+/* altera o preco de um produto tanto no vetor dos produtos como nas encomendas */
 void alteraPreco() {
   /* inicializa as variaveis a ler */
   int novop,idp;
@@ -214,6 +222,7 @@ void alteraPreco() {
   }
 }
 
+/* escreve a descricao e a quantidade do produto selecionado na encomenda selecionda */
 void listaDsQtdEmEncomenda() {
   /* inicializa as variaveis a ler */
   int ide, idp;
@@ -234,6 +243,8 @@ void listaDsQtdEmEncomenda() {
   }
 }
 
+/* escreve o indice do produto, o indice da encomenda e a sua quantidade
+   na encomenda que contem a maior quantidade do produto selecionado */
 void listaProdemEncomenda() {
   /* inicializa a variavel a ler  */
   int idp;
@@ -261,6 +272,7 @@ void listaProdemEncomenda() {
   }
 }
 
+/* funcao auxiliar para a funcao merge sort que organiza os vetores depois de divididos */
 void merge(produto v[], int l, int m, int r, int State) {
   int i,j,k;
   int n1 = m - l + 1;
@@ -322,6 +334,8 @@ void merge(produto v[], int l, int m, int r, int State) {
   }
 }
 
+/* funcao de organizacao de vetores mergesort que divide o vetor original ao meior
+   recebe um indice para indicar se estamos a organizar uma string ou um inteiro */
 void mergeSort(produto v[],int l,int r, int State) {
   if (l < r) {
 
@@ -336,6 +350,7 @@ void mergeSort(produto v[],int l,int r, int State) {
   }
 }
 
+/* cria uma lista de todos os produtos em stock organizados por preco */
 void listaTodosProds() {
   produto v[TAMANHO_ID];
   int i;
@@ -354,6 +369,8 @@ void listaTodosProds() {
   }
 }
 
+/* cria uma lista de todos os produtos numa encomenda selecionada organizados
+   por ordem alfabetica da descricao */
 void listaTodosProdsemEncomenda() {
   int ide, counter = 0;
   int i;
@@ -384,6 +401,7 @@ void listaTodosProdsemEncomenda() {
   }
 }
 
+/* funcao principal que le o input do comando que queremos fazer */
 int main() {
   /* inicializa a variavel de leitura */
   char c;
@@ -429,6 +447,7 @@ int main() {
       default:
         break;
     }
+    /* programa acaba quando escrevemos x */
   } while(c != 'x');
   return 0;
 }
