@@ -273,7 +273,7 @@ void listaProdemEncomenda() {
 }
 
 /* funcao auxiliar para a funcao merge sort que organiza os vetores depois de divididos */
-void merge(produto v[], int l, int m, int r, int State) {
+void merge(produto v[], int l, int m, int r, int Tipo) {
   int i,j,k;
   int n1 = m - l + 1;
   int n2 = r - m;
@@ -293,7 +293,7 @@ void merge(produto v[], int l, int m, int r, int State) {
   k = l; /* indice inicial do vetor final */
 
   /* verifica se e um inteiro ou uma string */
-  if (State == INTEIRO) {
+  if (Tipo == INTEIRO) {
     while (i < n1 && j < n2) {
       if (L[i].preco <= R[j].preco) {
         v[k] = L[i];
@@ -336,17 +336,17 @@ void merge(produto v[], int l, int m, int r, int State) {
 
 /* funcao de organizacao de vetores mergesort que divide o vetor original ao meior
    recebe um indice para indicar se estamos a organizar uma string ou um inteiro */
-void mergeSort(produto v[],int l,int r, int State) {
+void mergeSort(produto v[],int l,int r, int Tipo) {
   if (l < r) {
 
     /*  indice do meio do vetor */
     int m = l+(r-l)/2;
 
     /* organiza a primeira e a segunda metades*/
-    mergeSort(v, l, m, State);
-    mergeSort(v, m+1, r, State);
+    mergeSort(v, l, m, Tipo);
+    mergeSort(v, m+1, r, Tipo);
 
-    merge(v, l, m, r, State);
+    merge(v, l, m, r, Tipo);
   }
 }
 
