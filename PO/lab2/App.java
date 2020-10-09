@@ -6,7 +6,7 @@ public class App {
 		System.out.println(a.equals(b));
 		System.out.println(a);
 
-		a.ladra();
+		a.ladra(30);
 		a.rosna(b);
 	}
 }
