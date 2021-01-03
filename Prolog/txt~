@@ -1,0 +1,396 @@
+%ex 4
+Grelha = [[P11,P12,P13,#,P15,P16,P17,P18],
+[P21,#,P23,P24,P25,#,P27,#],
+[P31,#,P33,#,P35,a,P37,#],
+[P41,P42,P43,P44,P45,#,#,#],
+[P51,#,P53,#,#,#,#,#]],
+espacos_puzzle(Grelha, Espacos),
+Espacos == [[P11, P12, P13], [P15, P16, P17, P18], [P23, P24, P25],
+[P35, a, P37], [P41, P42, P43, P44, P45],
+[P11, P21, P31, P41, P51], [P13, P23, P33, P43, P53],
+[P15, P25, P35, P45], [P17, P27, P37]].
+
+%ex 2,3
+Fila = [#, _, _, _, _, _, #, _, #, _, _, _],
+espacos_fila(Fila, Espacos).
+
+%ex 5
+Grelha = [[P11,P12,P13,#,P15,P16,P17,P18],
+[P21,#,P23,P24,P25,#,P27,#],
+[P31,#,P33,#,P35,a,P37,#],
+[P41,P42,P43,P44,P45,#,#,#],
+[P51,#,P53,#,#,#,#,#]],
+espacos_puzzle(Grelha, Espacos),
+nth1(6, Espacos, Esp1),
+espacos_com_posicoes_comuns(Espacos, Esp1, Esps_com).
+
+Espacos = [[P11, P12, P13], [P15, P16, P17, P18], [P23, P24, P25],
+[P35, a, P37], [P41, P42, P43, P44, P45],
+[P11, P21, P31, P41, P51], [P13, P23, P33, P43, P53],
+[P15, P25, P35, P45], [P17, P27, P37]].
+Esp1 = [P11, P12, P13],
+espacos_com_posicoes_comuns(Espacos, Esp1, Esps_com).
+
+copia([P21,P26,P13],X),
+common_member(X,[P21,P22,P23]).
+
+
+%ex6
+&.1
+Lst_Pals = [mae, ato, dao, dia, sede, soar, ameno, drama, mande],
+Grelha =
+[[P11,P12,P13,#,P15,P16,P17,P18],
+[P21,#,P23,P24,P25,#,P27,#],
+[P31,#,P33,#,P35,a,P37,#],
+[P41,P42,P43,P44,P45,#,#,#],
+[P51,#,P53,#,#,#,#,#]],
+obtem_letras_palavras(Lst_Pals, Letras),
+espacos_puzzle(Grelha, Espacos),
+palavra_possivel_esp([d, i, a], [P11,P12,P13], Espacos, Letras).
+
+%.2
+Lst_Pals = [mae, ato, dao, dia, sede, soar, ameno, drama, mande],
+Grelha =
+[[P11,P12,P13,#,P15,P16,P17,P18],
+[P21,#,P23,P24,P25,#,P27,#],
+[P31,#,P33,#,P35,a,P37,#],
+[P41,P42,P43,P44,P45,#,#,#],
+[P51,#,P53,#,#,#,#,#]],
+obtem_letras_palavras(Lst_Pals, Letras),
+espacos_puzzle(Grelha, Espacos),
+palavra_possivel_esp([a, t, o], [P11,P12,P13], Espacos, Letras).
+
+%.3
+Lst_Pals = [mae, ato, dao, dia, sede, soar, ameno, drama, mande],
+Grelha =
+[[P11,P12,P13,#,P15,P16,P17,P18],
+[P21,#,P23,P24,P25,#,P27,#],
+[P31,#,P33,#,P35,a,P37,#],
+[P41,P42,P43,P44,P45,#,#,#],
+[P51,#,P53,#,#,#,#,#]],
+obtem_letras_palavras(Lst_Pals, Letras),
+espacos_puzzle(Grelha, Espacos),
+palavra_possivel_esp([s, e, d], [P11,P12,P13], Espacos, Letras).
+
+
+[[a, P21, P31, P41, P51], [o, P23, P33, P43, P53]]
+
+Lst_Pals = [mae, ato, dao, dia, sede, soar, ameno, drama, mande],
+obtem_letras_palavras(Lst_Pals, Letras),
+valido([[_11172,a,_11184],[d,_11094,_11148,_11202,_11256],[a,_11106,_11160,_11214,_11268]],Letras).
+
+[[_12276,a,_12288],[d,_12198,_12252,_12306,_12360],[a,_12210,_12264,_12318,_12372]]
+
+
+
+%ex7
+%.1
+Lst_Pals = [mae, ato, dao, dia, sede,
+soar, ameno, drama, mande],
+Grelha =
+[[P11,P12,P13,#,P15,P16,P17,P18],
+[P21,#,P23,P24,P25,#,P27,#],
+[P31,#,P33,#,P35,a,P37,#],
+[P41,P42,P43,P44,P45,#,#,#],
+[P51,#,P53,#,#,#,#,#]],
+obtem_letras_palavras(Lst_Pals, Letras),
+espacos_puzzle(Grelha, Espacos),
+palavras_possiveis_esp(Letras, Espacos,
+[P11, P12, P13], Pals_Possiveis).
+
+%.2
+Lst_Pals = [mae, ato, dao, dia, sede,
+soar, ameno, drama, mande],
+Grelha =
+[[P11,P12,P13,#,P15,P16,P17,P18],
+[P21,#,P23,P24,P25,#,P27,#],
+[P31,#,P33,#,P35,a,P37,#],
+[P41,P42,P43,P44,P45,#,#,#],
+[P51,#,P53,#,#,#,#,#]],
+obtem_letras_palavras(Lst_Pals, Letras),
+espacos_puzzle(Grelha, Espacos),
+palavras_possiveis_esp(Letras, Espacos,
+[P23, P24, P25], Pals_Possiveis).
+
+%ex8
+Lst_Pals = [mae, ato, dao, dia, sede, soar, ameno, drama, mande],
+Grelha =
+[[P11,P12,P13,#,P15,P16,P17,P18],
+[P21,#,P23,P24,P25,#,P27,#],
+[P31,#,P33,#,P35,a,P37,#],
+[P41,P42,P43,P44,P45,#,#,#],
+[P51,#,P53,#,#,#,#,#]],
+obtem_letras_palavras(Lst_Pals, Letras),
+espacos_puzzle(Grelha, Espacos),
+palavras_possiveis(Letras, Espacos, Pals_Possiveis),
+Pals_Possiveis ==
+[[[P11, P12, P13], [[d, i, a]]],
+[[P15, P16, P17, P18], [[s, e, d, e], [s, o, a, r]]],
+[[P23, P24, P25], [[a, t, o], [m, a, e]]],
+[[P35, a, P37], [[d, a, o]]],
+[[P41, P42, P43, P44, P45], [[m, a, n, d, e]]],
+[[P11, P21, P31, P41, P51], [[d, r, a, m, a], [m, a, n, d, e]]],
+[[P13, P23, P33, P43, P53], [[a, m, e, n, o]]],
+[[P15, P25, P35, P45], [[s, e, d, e]]],
+[[P17, P27, P37], [[a, t, o], [d, a, o]]]].
+
+%ex9
+Lst_Pals = [[a,t,o], [a, c, o], [a,n,o], [a,l,o]],
+letras_comuns(Lst_Pals, (I,Comuns)).
+
+%ex10
+
+Pals_Possiveis =
+[[[P11, P12, P13], [[d, i, a]]],
+[[P15, P16, P17, P18], [[s, e, d, e], [s, o, a, r]]],
+[[P23, P24, P25], [[a, t, o], [m, a, e]]],
+[[P35, a, P37], [[d, a, o]]],
+[[P41, P42, P43, P44, P45], [[m, a, n, d, e]]],
+[[P11, P21, P31, P41, P51], [[d, r, a, m, a], [m, a, n, d, e]]],
+[[P13, P23, P33, P43, P53], [[a, m, e, n, o]]],
+[[P15, P25, P35, P45], [[s, e, d, e]]],
+[[P17, P27, P37], [[a, t, o], [d, a, o]]]],
+atribui_comuns(Pals_Possiveis),
+Pals_Possiveis ==
+[[[d, i, a], [[d, i, a]]],
+[[s, P16, P17, P18], [[s, e, d, e], [s, o, a, r]]],
+[[m, P24, e], [[a, t, o], [m, a, e]]],
+[[d, a, o], [[d, a, o]]],
+[[m, a, n, d, e], [[m, a, n, d, e]]],
+[[d, P21, P31, m, P51], [[d, r, a, m, a], [m, a, n, d, e]]],
+[[a, m, e, n, o], [[a, m, e, n, o]]],
+[[s, e, d, e], [[s, e, d, e]]],
+[[P17, P27, o], [[a, t, o], [d, a, o]]]].
+
+%ex11
+Pals_Possiveis = [[[d, i, a], [[d, i, a]]],
+[[s, P16, P17, P18], [[s, e, d, e], [s, o, a, r]]],
+[[m, P24, e], [[a, t, o], [m, a, e]]],
+[[d, a, o], [[d, a, o]]],
+[[m, a, n, d, e], [[m, a, n, d, e]]],
+[[d, P21, P31, m, P51], [[d, r, a, m, a], [m, a, n, d, e]]],
+[[a, m, e, n, o], [[a, m, e, n, o]]],
+[[s, e, d, e], [[s, e, d, e]]],
+[[P17, P27, o], [[a, t, o], [d, a, o]]]],
+retira_impossiveis(Pals_Possiveis, Novas_Pals_Possiveis),
+Novas_Pals_Possiveis ==
+[[[d, i, a], [[d, i, a]]],
+[[s, P16, P17, P18], [[s, e, d, e], [s, o, a, r]]],
+[[m, P24, e], [[m, a, e]]],
+[[d, a, o], [[d, a, o]]],
+[[m, a, n, d, e], [[m, a, n, d, e]]],
+[[d, P21, P31, m, P51], [[d, r, a, m, a]]],
+[[a, m, e, n, o], [[a, m, e, n, o]]],
+[[s, e, d, e], [[s, e, d, e]]],
+[[P17, P27, o], [[a, t, o], [d, a, o]]]].
+
+%ex12
+Pals_Possiveis=
+[[[d, i, a], [[d, i, a]]],
+[[s, P16, P17, P18], [[s, e, d, e], [s, o, a, r]]],
+[[m, P24, e], [[m, a, e]]],
+[[d, a, o], [[d, a, o]]],
+[[m, a, n, d, e], [[m, a, n, d, e]]],
+[[d, P21, P31, m, P51], [[d, r, a, m, a]]],
+[[a, m, e, n, o], [[a, m, e, n, o]]],
+[[s, e, d, e], [[s, e, d, e]]],
+[[P17, P27, o], [[a, t, o], [d, a, o]]]],
+obtem_unicas(Pals_Possiveis, Unicas),
+writeln(Unicas).
+
+%ex13
+Pals_Possiveis=
+[[[d, i, a], [[d, i, a]]],
+[[s, P16, P17, P18], [[s, e, d, e], [s, o, a, r]]],
+[[m, P24, e], [[m, a, e]]],
+[[d, a, o], [[d, a, o]]],
+[[m, a, n, d, e], [[m, a, n, d, e]]],
+[[d, P21, P31, m, P51], [[d, r, a, m, a]]],
+[[a, m, e, n, o], [[a, m, e, n, o]]],
+[[s, e, d, e], [[s, e, d, e]]],
+[[P17, P27, o], [[a, t, o], [d, a, o]]]],
+retira_unicas(Pals_Possiveis, Novas_Pals_Possiveis),
+Novas_Pals_Possiveis ==
+[[[d, i, a], [[d, i, a]]],
+[[s, P16, P17, P18], [ [s, o, a, r]]],
+[[m, P24, e], [[m, a, e]]],
+[[d, a, o], [[d, a, o]]],
+[[m, a, n, d, e], [[m, a, n, d, e]]],
+[[d, P21, P31, m, P51], [[d, r, a, m, a]]],
+[[a, m, e, n, o], [[a, m, e, n, o]]],
+[[s, e, d, e], [[s, e, d, e]]],
+[[P17, P27, o], [[a, t, o]]]].
+
+%ex14
+Pals_Possiveis =
+[[[P11, P12, P13], [[d, i, a]]],
+[[P15, P16, P17, P18], [[s, e, d, e], [s, o, a, r]]],
+[[P23, P24, P25], [[a, t, o], [m, a, e]]],
+[[P35, a, P37], [[d, a, o]]],
+[[P41, P42, P43, P44, P45], [[m, a, n, d, e]]],
+[[P11, P21, P31, P41, P51], [[d, r, a, m, a], [m, a, n, d, e]]],
+[[P13, P23, P33, P43, P53], [[a, m, e, n, o]]],
+[[P15, P25, P35, P45], [[s, e, d, e]]],
+[[P17, P27, P37], [[a, t, o], [d, a, o]]]],
+simplifica(Pals_Possiveis, Novas_Pals_Possiveis),
+maplist(writeln, Novas_Pals_Possiveis).
+
+
+F = [[A,B],[[C,D],[C,E]]],
+findall(X,(member(X,F),maplist(copia,X,L)),Final).
+
+Pals_Possiveis =
+[[[P11, P12, P13], [[d, i, a]]],
+[[P15, P16, P17, P18], [[s, e, d, e], [s, o, a, r]]],
+[[P23, P24, P25], [[a, t, o], [m, a, e]]],
+[[P35, a, P37], [[d, a, o]]],
+[[P41, P42, P43, P44, P45], [[m, a, n, d, e]]],
+[[P11, P21, P31, P41, P51], [[d, r, a, m, a], [m, a, n, d, e]]],
+[[P13, P23, P33, P43, P53], [[a, m, e, n, o]]],
+[[P15, P25, P35, P45], [[s, e, d, e]]],
+[[P17, P27, P37], [[a, t, o], [d, a, o]]]],
+copia_board(Pals_Possiveis, L),
+Pals_Possiveis ==
+[[[P11, P12, P13], [[d, i, a]]],
+[[P15, P16, P17, P18], [[s, e, d, e], [s, o, a, r]]],
+[[P23, P24, P25], [[a, t, o], [m, a, e]]],
+[[P35, a, P37], [[d, a, o]]],
+[[P41, P42, P43, P44, P45], [[m, a, n, d, e]]],
+[[P11, P21, P31, P41, P51], [[d, r, a, m, a], [m, a, n, d, e]]],
+[[P13, P23, P33, P43, P53], [[a, m, e, n, o]]],
+[[P15, P25, P35, P45], [[s, e, d, e]]],
+[[P17, P27, P37], [[a, t, o], [d, a, o]]]].
+
+%ex15
+Puz =
+[[ato,dao,dia,mae,sede,soar,ameno,drama,mande],
+[[P11, P12, P13, #, P15, P16, P17, P18],
+[P21, #, P23, P24, P25, #, P27, #],
+[P31, #, P33, #, P35, a, P37, #],
+[P41, P42, P43, P44, P45, #, #, #],
+[P51, #, P53, #, #, #, #, #]]],
+inicializa(Puz, Pals_Possiveis),
+maplist(writeln, Pals_Possiveis).
+
+%ex 2.1
+%.1
+Pals_Possiveis =
+[[[P11, P12, P13], [[d, i, a], [a, t, o], [m, a, e]]],
+[[P15, P16, P17, P18], [[s, e, d, e], [s, o, a, r]]],
+[[P23, P24, P25], [[a, t, o], [m, a, e]]],
+[[P35, a, P37], [[d, a, o]]],
+[[P41, P42, P43, P44, P45], [[m, a, n, d, e]]],
+[[P11, P21, P31, P41, P51], [[d, r, a, m, a], [m, a, n, d, e]]],
+[[P13, P23, P33, P43, P53], [[a, m, e, n, o]]],
+[[P15, P25, P35, P45], [[s, e, d, e]]],
+[[P17, P27, P37], [[a, t, o], [d, a, o]]]],
+escolhe_menos_alternativas(Pals_Possiveis, Escolha).
+
+%.2
+Pals_Possiveis =
+[[[d, i, a], [[d, i, a]]],
+[[s, o, a, r], [ [s, o, a, r]]],
+[[[m, a, e]], [[m, a, e]]],
+[[d, a, o], [[d, a, o]]],
+[[m, a, n, d, e], [[m, a, n, d, e]]],
+[[d, r, a, m, a], [[d, r, a, m, a]]],
+[[a, m, e, n, o], [[a, m, e, n, o]]],
+[[s, e, d, e], [[s, e, d, e]]],
+[[[a, t, o]], [[a, t, o]]]],
+escolhe_menos_alternativas(Pals_Possiveis, Escolha).
+
+%ex 2.2
+Pals_Possiveis =
+[[[P11, P12, P13], [[d, i, a], [a, t, o], [m, a, e]]],
+[[P15, P16, P17, P18], [[s, e, d, e], [s, o, a, r]]],
+[[P23, P24, P25], [[a, t, o], [m, a, e]]],
+[[P35, a, P37], [[d, a, o]]],
+[[P41, P42, P43, P44, P45], [[m, a, n, d, e]]],
+[[P11, P21, P31, P41, P51], [[d, r, a, m, a], [m, a, n, d, e]]],
+[[P13, P23, P33, P43, P53], [[a, m, e, n, o]]],
+[[P15, P25, P35, P45], [[s, e, d, e]]],
+[[P17, P27, P37], [[a, t, o], [d, a, o]]]],
+Escolha = [[P15, P16, P17, P18], [[s, e, d, e], [s, o, a, r]]],
+experimenta_pal(Escolha, Pals_Possiveis, Novas_Pals_Possiveis).
+
+%ex 2.3
+Puz =
+[[aia,dai,dao,das,dei,dia,diz,doa,doi,ida,ira],
+[[#,#,#,P14,P15,P16,#,P18],
+[#,P22,P23,P24,#,P26,P27,P28],
+[#,P32,#,P34,P35,P36,#,P38],
+[P41,P42,P43,#,P45,#,#,#],
+[#,#,#,P54,P55,P56,#,#]]],
+inicializa(Puz, Pals_Possiveis),
+resolve_aux(Pals_Possiveis, Novas_Pals_Possiveis),
+maplist(writeln, Novas_Pals_Possiveis).
+
+F =
+[[[d,a,i],[[d,a,i]]],
+[[d,e,i],[[d,e,i]]],
+[[d,o,a],[[d,o,a]]],
+[[a,i,a],[[a,i,a]]],
+[[d,i,z],[[d,i,z]]],
+[[d,a,o],[[d,a,o]]],
+[[d,o,i],[[d,o,i]]],
+[[d,i,a],[[d,i,a]]],
+[[i,r,a],[[i,r,a]]],
+[[i,d,a],[[i,d,a],[b,c,e]]],
+[[d,a,s],[[d,a,s]]]],
+escolhe_menos_alternativas(F, U).
+
+% ex 3.1
+Puz =
+[[aia,dai,dao,das,dei,dia,diz,doa,doi,ida,ira],
+[[#,#,#,P14,P15,P16,#,P18],
+[#,P22,P23,P24,#,P26,P27,P28],
+[#,P32,#,P34,P35,P36,#,P38],
+[P41,P42,P43,#,P45,#,#,#],
+[#,#,#,P54,P55,P56,#,#]]],
+Puz = [Lst_Pals, Grelha],
+writeln("Puzzle:"), escreve_Grelha(Grelha),
+resolve(Puz),
+writeln("Solucao:"), escreve_Grelha(Grelha).
+
+
+Puz =
+[[ato,dao,dia,mae,sede,soar,ameno,drama,mande],
+[[P11, P12, P13, #, P15, P16, P17, P18],
+[P21, #, P23, P24, P25, #, P27, #],
+[P31, #, P33, #, P35, a, P37, #],
+[P41, P42, P43, P44, P45, #, #, #],
+[P51, #, P53, #, #, #, #, #]]],
+
+puzzle(puz3, Puz),
+Puz = [Lst_Pals, Grelha],
+writeln("Puzzle:"), escreve_Grelha(Grelha),
+resolve(Puz),
+writeln("Solucao:"), escreve_Grelha(Grelha).
+
+%testes
+Pals_Possiveis_puz2 = [[[P15, P16, P17], [[h, e, i], [h, e, m], [i, a, m], [l, e, i], [m, e, l], [m, e, u], [n, e, m], [u, n, i]]],
+[[P21, P22, P23], [[h, e, i], [h, e, m], [i, a, m], [l, e, i], [m, e, l], [m, e, u], [n, e, m], [u, n, i]]],
+[[P33, P34, P35], [[n, e, m]]],
+[[P41, P42, P43], [[i, a, m], [l, e, i], [m, e, l], [m, e, u], [u, n, i]]],
+[[P21, P31, P41], [[h, e, i], [h, e, m], [i, a, m], [l, e, i], [m, e, l], [m, e, u], [n, e, m], [u, n, i]]],
+[[P23, P33, P43], [[u, n, i]]],
+[[P15, P25, P35], [[h, e, i], [h, e, m], [i, a, m], [l, e, i], [m, e, l], [m, e, u], [n, e, m], [u, n, i]]],
+[[P17, P27, P37], [[i, a, m], [l, e, i], [m, e, l], [m, e, u], [u, n, i]]]],
+Escolha = [[P41, P42, P43], [[i, a, m], [l, e, i], [m, e, l], [m, e, u], [u, n, i]]],
+experimenta_pal(Escolha, Pals_Possiveis_puz2, Novas_Pals_Possiveis_puz2),
+maplist(writeln, Novas_Pals_Possiveis_puz2),
+Novas_Pals_Possiveis_puz2 == [[[P15, P16, P17], [[h, e, i], [h, e, m], [i, a, m], [l, e, i],[m, e, l], [m, e, u], [n, e, m], [u, n, i]]],
+[[P21, P22, P23], [[h, e, i], [h, e, m], [i, a, m], [l, e, i], [m, e, l], [m, e, u], [n, e, m], [u, n, i]]],
+[[P33, P34, P35], [[n, e, m]]],
+[[i, a, m], [[i, a, m]]],
+[[P21, P31, i], [[h, e, i], [h, e, m], [i, a, m], [l, e, i], [m, e, l], [m, e, u], [n, e, m], [u, n, i]]],
+[[P23, P33, m], [[u, n, i]]],
+[[P15, P25, P35], [[h, e, i], [h, e, m], [i, a, m], [l, e, i], [m, e, l], [m, e, u], [n, e, m], [u, n, i]]],
+[[P17, P27, P37], [[i, a, m], [l, e, i], [m, e, l], [m, e, u], [u, n, i]]]]
+,writeln('true') ; writeln('false').
+
+
+Pals_Possiveis_puz3 = [[[P11, o, P13], [[n, o, s], [n, o, z], [s, o, s]]], [[P31, P32, P33],[[n, o, s], [n, o, z], [n, u, s], [s, o, s], [z, e, n]]], [[P44, P45, P46], [[e, i, s], [n, o, s], [n, o, z], [n, u, s], [o, i, s], [s, o, s], [u, n, s], [u, s, o], [z, e, n]]], [[P52, P53, P54], [[n, o, s], [n, u, s], [o, i, s], [s, o, s], [z, e, n]]], [[P64, P65, P66], [[n, o, s], [n, o, z], [n, u, s], [o, i, s], [s, o, s], [z, e, n]]], [[P11, P21, P31], [[n, o, s], [n, o, z], [n, u, s], [s, o, s]]], [[P32, P42, P52], [[e, i, s], [n, o, s], [n, o, z], [n, u, s], [o, i, s], [s, o, s], [u, n, s], [u, s, o]]], [[P44, P54, P64], [[n, o, s], [n, o, z], [s, o, s], [u, n, s], [u, s, o]]], [[P26, P36, P46], [[e, i, s], [n, o, s], [n, o, z], [n, u, s], [o, i, s], [s, o, s], [u, n, s], [u, s, o], [z, e, n]]]],
+Escolha = [[P11, o, P13], [[n, o, s], [n, o, z], [s, o, s]]],
+experimenta_pal(Escolha, Pals_Possiveis_puz3, Novas_Pals_Possiveis_puz3),
+Novas_Pals_Possiveis_puz3 == [[[n, o, s], [[n, o, s]]], [[P31, P32, P33], [[n, o, s], [n, o, z], [n, u, s], [s, o, s], [z, e, n]]], [[P44, P45, P46], [[e, i, s], [n, o, s], [n, o, z], [n, u, s], [o, i, s], [s, o, s], [u, n, s], [u, s, o], [z, e, n]]], [[P52, P53, P54], [[n, o, s], [n, u, s], [o, i, s], [s, o, s], [z, e, n]]], [[P64, P65, P66], [[n, o, s], [n, o, z], [n, u, s], [o, i, s], [s, o, s], [z, e, n]]], [[n, P21, P31], [[n, o, s], [n, o, z], [n, u, s], [s, o, s]]], [[P32, P42, P52], [[e, i, s], [n, o, s], [n, o, z], [n, u, s], [o, i, s], [s, o, s], [u, n, s], [u, s, o]]], [[P44, P54, P64], [[n, o, s], [n, o, z], [s, o, s], [u, n, s], [u, s, o]]], [[P26, P36, P46], [[e, i, s], [n, o, s], [n, o, z], [n, u, s], [o, i, s], [s, o, s], [u, n, s], [u, s, o], [z, e, n]]]] ,writeln('true') ; writeln('false').
